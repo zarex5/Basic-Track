@@ -2,6 +2,8 @@ package fr.llegrand.basictrack;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -45,11 +47,16 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button)findViewById(R.id.ajouter);
         button.setOnClickListener(btnAddListener);
 
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         mBuilder = new NotificationCompat.Builder(this, "1")
                 .setContentTitle("Attention")
                 .setContentText("Merci de ne pas spammer le bouton")
                 .setSmallIcon(R.drawable.ic_smallicon)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
         notificationManager = NotificationManagerCompat.from(this);
     }
 }
