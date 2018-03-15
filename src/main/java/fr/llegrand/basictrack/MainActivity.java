@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setOnTabSelectedListener(tabListener);
 
-        Button button = (Button)findViewById(R.id.ajouter);
-        button.setOnClickListener(btnAddListener);
+        /*Button button = (Button)findViewById(R.id.ajouter);
+        button.setOnClickListener(btnAddListener);*/
 
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     /*Au click sur le bouton ajouter*/
-    private View.OnClickListener btnAddListener = new View.OnClickListener() {
+    /*private View.OnClickListener btnAddListener = new View.OnClickListener() {
         public void onClick(View v) {
             Log.i("CLICK", "BOUTON AJOUTER");
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 i = 0;
             }
         }
-    };
+    };*/
 
     /*Au clic sur un bouton du menu*/
     @Override
