@@ -5,8 +5,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    private ViewPager viewPager;
     NotificationManagerCompat notificationManager = null;
     NotificationCompat.Builder mBuilder = null;
     int i = 0;
@@ -50,6 +54,43 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
+        viewPager = (ViewPager) findViewById(R.id.my_viewpager);
+        setupViewPager(viewPager);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.my_tablayout);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+
+                switch (tab.getPosition()) {
+                    case 0:
+                        Toast toast = Toast.makeText(getApplicationContext(), "One", Toast.LENGTH_SHORT);
+                        toast.show();
+                        break;
+                    case 1:
+                        Toast toast2 = Toast.makeText(getApplicationContext(), "Two", Toast.LENGTH_SHORT);
+                        toast2.show();
+                        break;
+                    case 2:
+                        Toast toast3 = Toast.makeText(getApplicationContext(), "Three", Toast.LENGTH_SHORT);
+                        toast3.show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
+
         Button button = (Button)findViewById(R.id.ajouter);
         button.setOnClickListener(btnAddListener);
 
@@ -64,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
         notificationManager = NotificationManagerCompat.from(this);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new DummyFragment(), "CAT");
+        adapter.addFrag(new DummyFragment(), "DOG");
+        adapter.addFrag(new DummyFragment(), "MOUSE");
+        viewPager.setAdapter(adapter);
     }
 
     @Override
