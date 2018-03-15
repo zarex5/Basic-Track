@@ -1,12 +1,8 @@
 package fr.llegrand.basictrack;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.os.Build;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.ViewPager;
@@ -22,12 +18,90 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Toolbar toolbar;
+    private Toolbar toolBar;
     private ViewPager viewPager;
-    NotificationManagerCompat notificationManager = null;
-    NotificationCompat.Builder mBuilder = null;
+    private TabLayout tabLayout;
+
+    private NotificationManagerCompat notificationManager = null;
+    private NotificationCompat.Builder mBuilder = null;
+
     int i = 0;
 
+    /*A la création de l'activité*/
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        toolBar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolBar);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager_main);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tablayout_main);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(tabListener);
+
+        Button button = (Button)findViewById(R.id.ajouter);
+        button.setOnClickListener(btnAddListener);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        mBuilder = new NotificationCompat.Builder(this, "1")
+                .setContentTitle("Attention")
+                .setContentText("Merci de ne pas spammer le bouton")
+                .setSmallIcon(R.drawable.ic_smallicon)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+        notificationManager = NotificationManagerCompat.from(this);
+    }
+
+    /*Setup des onglets des tabs*/
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new TabFragment(), "Lundi");
+        adapter.addFrag(new TabFragment(), "Mardi");
+        adapter.addFrag(new TabFragment(), "Jeudi");
+        viewPager.setAdapter(adapter);
+    }
+
+    /*A la création du menu*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    /*A la sélection d'un onglet*/
+    private TabLayout.OnTabSelectedListener tabListener = new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+            viewPager.setCurrentItem(tab.getPosition());
+            switch (tab.getPosition()) {
+                case 0:
+                    Toast toast = Toast.makeText(getApplicationContext(), "Page1", Toast.LENGTH_SHORT);
+                    toast.show();
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+        }
+    };
+
+    /*Au click sur le bouton ajouter*/
     private View.OnClickListener btnAddListener = new View.OnClickListener() {
         public void onClick(View v) {
             Log.i("CLICK", "BOUTON AJOUTER");
@@ -46,75 +120,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Log.i("INFO", "CONTENU SET");
-        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-
-        viewPager = (ViewPager) findViewById(R.id.my_viewpager);
-        setupViewPager(viewPager);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.my_tablayout);
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-
-                switch (tab.getPosition()) {
-                    case 0:
-                        Toast toast = Toast.makeText(getApplicationContext(), "One", Toast.LENGTH_SHORT);
-                        toast.show();
-                        break;
-                    case 1:
-                        Toast toast2 = Toast.makeText(getApplicationContext(), "Two", Toast.LENGTH_SHORT);
-                        toast2.show();
-                        break;
-                    case 2:
-                        Toast toast3 = Toast.makeText(getApplicationContext(), "Three", Toast.LENGTH_SHORT);
-                        toast3.show();
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
-
-
-        Button button = (Button)findViewById(R.id.ajouter);
-        button.setOnClickListener(btnAddListener);
-
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        mBuilder = new NotificationCompat.Builder(this, "1")
-                .setContentTitle("Attention")
-                .setContentText("Merci de ne pas spammer le bouton")
-                .setSmallIcon(R.drawable.ic_smallicon)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-        notificationManager = NotificationManagerCompat.from(this);
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment(), "CAT");
-        adapter.addFrag(new DummyFragment(), "DOG");
-        adapter.addFrag(new DummyFragment(), "MOUSE");
-        viewPager.setAdapter(adapter);
-    }
-
+    /*Au clic sur un bouton du menu*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         EditText nom = (EditText) findViewById(R.id.nom);
@@ -134,11 +140,5 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
     }
 }
