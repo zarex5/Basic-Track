@@ -123,16 +123,16 @@ public class MainActivity extends AppCompatActivity {
     /*Au clic sur un bouton du menu*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        EditText nom = (EditText) findViewById(R.id.nom);
+        //EditText nom = (EditText) findViewById(R.id.nom);
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Log.i("DEBUG", "SETTINGS CLICKED");
-                nom.setText("");
+                //nom.setText("");
                 return true;
 
             case R.id.action_plus:
                 Log.i("DEBUG", "PLUS CLICKED");
-                nom.setText("Legrand");
+                //nom.setText("Legrand");
                 return true;
 
             default:
