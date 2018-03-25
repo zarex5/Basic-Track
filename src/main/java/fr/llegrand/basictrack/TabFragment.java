@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import fr.llegrand.basictrack.adapters.RecyclerViewAdapter;
+import fr.llegrand.basictrack.models.Exercice;
 
 public class TabFragment extends Fragment {
     private Activity act;
@@ -44,7 +44,7 @@ public class TabFragment extends Fragment {
         RecyclerView rv = (RecyclerView)act.findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext());
         rv.setLayoutManager(llm);
-        RVAdapter adapter = new RVAdapter(exercices);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(exercices);
         rv.setAdapter(adapter);
     }
 }

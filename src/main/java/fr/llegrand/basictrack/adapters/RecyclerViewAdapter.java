@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.adapters;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ExerciceViewHolder>{
+import fr.llegrand.basictrack.models.Exercice;
+import fr.llegrand.basictrack.R;
+
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ExerciceViewHolder>{
 
     List<Exercice> exercices;
 
-    RVAdapter(List<Exercice> exercices){
+    public RecyclerViewAdapter(List<Exercice> exercices){
         this.exercices = exercices;
     }
 
@@ -47,9 +50,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ExerciceViewHolder
 
     @Override
     public void onBindViewHolder(ExerciceViewHolder exerciceViewHolder, int i) {
-        exerciceViewHolder.nomExercice.setText(exercices.get(i).nom);
-        exerciceViewHolder.photoExercice.setImageResource(exercices.get(i).photoId);
-        exerciceViewHolder.infosExercice.setText("Séries: " + exercices.get(i).series + " | Répetitions: " + exercices.get(i).repetitions + " | Poids: " + exercices.get(i).poids);
+        exerciceViewHolder.nomExercice.setText(exercices.get(i).getNom());
+        exerciceViewHolder.photoExercice.setImageResource(exercices.get(i).getPhotoId());
+        exerciceViewHolder.infosExercice.setText("Séries: " + exercices.get(i).getSeries() + " | Répetitions: " + exercices.get(i).getRepetitions() + " | Poids: " + exercices.get(i).getPoids());
     }
 
     @Override
