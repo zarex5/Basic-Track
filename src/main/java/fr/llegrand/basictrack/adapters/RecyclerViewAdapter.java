@@ -1,5 +1,6 @@
 package fr.llegrand.basictrack.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,9 +18,11 @@ import fr.llegrand.basictrack.R;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ExerciceViewHolder>{
 
     List<Exercice> exercices;
+    Context context;
 
-    public RecyclerViewAdapter(List<Exercice> exercices){
+    public RecyclerViewAdapter(List<Exercice> exercices, Context context){
         this.exercices = exercices;
+        this.context = context;
     }
 
     public static class ExerciceViewHolder extends RecyclerView.ViewHolder {
@@ -49,10 +53,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(ExerciceViewHolder exerciceViewHolder, int i) {
+    public void onBindViewHolder(ExerciceViewHolder exerciceViewHolder, final int i) {
         exerciceViewHolder.nomExercice.setText(exercices.get(i).getNom());
         exerciceViewHolder.photoExercice.setImageResource(exercices.get(i).getPhotoId());
         exerciceViewHolder.infosExercice.setText("Séries: " + exercices.get(i).getSeries() + " | Répetitions: " + exercices.get(i).getRepetitions() + " | Poids: " + exercices.get(i).getPoids());
+        exerciceViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "CardView '" + exercices.get(i).getNom() + "' cliqued", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -44,7 +44,7 @@ public class TabFragment extends Fragment {
         RecyclerView rv = (RecyclerView)act.findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext());
         rv.setLayoutManager(llm);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(exercices);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(exercices, act.getApplicationContext());
         rv.setAdapter(adapter);
     }
 }
