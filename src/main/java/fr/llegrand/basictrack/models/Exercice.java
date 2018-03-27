@@ -10,14 +10,6 @@ public class Exercice {
     private int position;
     private int id_jour;
 
-    public Exercice(String nom, int photoId, int series, int repetitions, double poids) {
-        this.nom = nom;
-        this.photoId = photoId;
-        this.series = series;
-        this.repetitions = repetitions;
-        this.poids = poids;
-    }
-
     public Exercice(int id, String nom, int photoId, int series, int repetitions, double poids, int position, int id_jour) {
         this.id = id;
         this.nom = nom;
@@ -28,7 +20,6 @@ public class Exercice {
         this.position = position;
         this.id_jour = id_jour;
     }
-
 
     public int getId() {
         return id;
@@ -60,5 +51,14 @@ public class Exercice {
 
     public int getId_jour() {
         return id_jour;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercice{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", id_jour=" + id_jour +
+                '}';
     }
 }

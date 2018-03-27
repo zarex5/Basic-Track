@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.llegrand.basictrack.adapters.ViewPagerAdapter;
+import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.models.Jour;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //private NotificationManagerCompat notificationManager = null;
     //private NotificationCompat.Builder mBuilder = null;
     List<Jour> jours;
+    List<Exercice> exercices;
 
     /*A la création de l'activité*/
     @Override
@@ -62,16 +64,28 @@ public class MainActivity extends AppCompatActivity {
     /*Setup fake données*/
     private void getData() {
         jours = new ArrayList<>();
-        jours.add(new Jour(1, "Lundi", 0));
-        jours.add(new Jour(2, "Mardi", 1));
-        jours.add(new Jour(3, "Jeudi", 2));
+        jours.add(new Jour(1, "Lundi", 1));
+        jours.add(new Jour(2, "Mardi", 2));
+        jours.add(new Jour(3, "Jeudi", 3));
+
+        exercices = new ArrayList<>();
+        exercices.add(new Exercice(1, "Développé couché", R.drawable.pectoraux, 4, 10, 20.0, 1, 1));
+        exercices.add(new Exercice(2, "Développé couché incliné", R.drawable.pectoraux, 4, 10, 10.0, 2, 1));
+        exercices.add(new Exercice(3, "Curl haltère", R.drawable.biceps, 3, 10, 8.0, 3, 1));
+        exercices.add(new Exercice(4, "Presse", R.drawable.fessiers, 4, 8, 60, 1, 2));
+        exercices.add(new Exercice(5, "Tirage large", R.drawable.dorsaux, 4, 10, 25, 1, 3));
     }
 
     /*Setup des onglets des tabs*/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         for(int i = 0; i<jours.size(); i++) {
-            adapter.addFrag(new TabFragment(this, jours.get(i).getId()), jours.get(i).getNom());
+            ArrayList<Exercice> exercicesJour = new ArrayList<>();
+            for(Exercice e : exercices) {
+                if (e.getId_jour() == jours.get(i).getId())
+                    exercicesJour.add(e);
+            }
+            adapter.addFrag(new TabFragment(this, exercicesJour), jours.get(i).getNom());
         }
         viewPager.setAdapter(adapter);
     }

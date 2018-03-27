@@ -26,4 +26,12 @@ public class Jour {
     public int getPosition() {
         return position;
     }
+
+    @Override
+    public String toString() {
+        return "Jour{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 }
