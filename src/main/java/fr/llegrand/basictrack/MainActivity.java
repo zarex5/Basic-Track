@@ -14,7 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.llegrand.basictrack.adapters.ViewPagerAdapter;
+import fr.llegrand.basictrack.models.Jour;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolBar;
@@ -22,12 +26,15 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     //private NotificationManagerCompat notificationManager = null;
     //private NotificationCompat.Builder mBuilder = null;
+    List<Jour> jours;
 
     /*A la création de l'activité*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getData();
 
         toolBar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolBar);
@@ -52,12 +59,20 @@ public class MainActivity extends AppCompatActivity {
         notificationManager = NotificationManagerCompat.from(this);*/
     }
 
+    /*Setup fake données*/
+    private void getData() {
+        jours = new ArrayList<>();
+        jours.add(new Jour(1, "Lundi", 0));
+        jours.add(new Jour(2, "Mardi", 1));
+        jours.add(new Jour(3, "Jeudi", 2));
+    }
+
     /*Setup des onglets des tabs*/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new TabFragment(this), "Lundi");
-        adapter.addFrag(new TabFragment(this), "Mardi");
-        adapter.addFrag(new TabFragment(this), "Jeudi");
+        for(int i = 0; i<jours.size(); i++) {
+            adapter.addFrag(new TabFragment(this, jours.get(i).getId()), jours.get(i).getNom());
+        }
         viewPager.setAdapter(adapter);
     }
 

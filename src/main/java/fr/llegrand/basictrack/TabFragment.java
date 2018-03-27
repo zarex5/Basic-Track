@@ -18,13 +18,15 @@ import fr.llegrand.basictrack.models.Exercice;
 
 public class TabFragment extends Fragment {
     private Activity act;
+    private int jour_id;
 
     public TabFragment() {
     }
 
     @SuppressLint("ValidFragment")
-    public TabFragment(Activity act) {
+    public TabFragment(Activity act, int jour_id) {
         this.act = act;
+        this.jour_id = jour_id;
     }
 
     @Override
