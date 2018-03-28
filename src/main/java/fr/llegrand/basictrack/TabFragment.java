@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,8 @@ import fr.llegrand.basictrack.models.Exercice;
 public class TabFragment extends Fragment {
     private Activity act;
     private List<Exercice> exercices;
+    private RecyclerView rv;
+    private RecyclerViewAdapter adapter;
 
     public TabFragment() {
     }
@@ -34,16 +35,16 @@ public class TabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
+        rv = (RecyclerView) view.findViewById(R.id.rv);
+        LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext());
+        rv.setLayoutManager(llm);
+        adapter = new RecyclerViewAdapter(exercices, act.getApplicationContext());
+        rv.setAdapter(adapter);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        RecyclerView rv = (RecyclerView)act.findViewById(R.id.rv);
-        LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext());
-        rv.setLayoutManager(llm);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(exercices, act.getApplicationContext());
-        rv.setAdapter(adapter);
     }
 }
