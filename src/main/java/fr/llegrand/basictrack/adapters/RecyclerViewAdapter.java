@@ -1,8 +1,10 @@
 package fr.llegrand.basictrack.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import fr.llegrand.basictrack.ExerciceActivity;
 import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.R;
 
@@ -60,7 +63,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         exerciceViewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "CardView '" + exercices.get(i).getNom() + "' cliqued", Toast.LENGTH_SHORT).show();
+                Intent versPrefs = new Intent(context.getApplicationContext(), ExerciceActivity.class);
+                context.getApplicationContext().startActivity(versPrefs);
+                Log.i("NAV", "Aller ExerciceActivity: " + exercices.get(i).getNom());
             }
         });
     }
