@@ -15,29 +15,232 @@
 
         <TextView
             android:id="@+id/toolbar_exercice_nom"
-            android:text="Exercice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Exercice"
             android:textColor="@color/colorWhite"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/toolbar_exercice_muscle"
-            android:text="Muscle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginRight="15dp"
+            android:text="Muscle"
             android:textAllCaps="true"
             android:textColor="@color/colorWhiteTransparent"
             android:textSize="14sp" />
     </android.support.v7.widget.Toolbar>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp">
+
+                <EditText
+                    android:id="@+id/reps_input_1"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/reps_label_1"
+                    android:text="reps"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+
+                <EditText
+                    android:id="@+id/kg_input_1"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/kg_label_1"
+                    android:text="kg"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/delete_img_1"
+                app:srcCompat="@drawable/ic_close_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp">
+
+                <EditText
+                    android:id="@+id/reps_input_2"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/reps_label_2"
+                    android:text="reps"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+
+                <EditText
+                    android:id="@+id/kg_input_2"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/kg_label_2"
+                    android:text="kg"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/delete_img_2"
+                app:srcCompat="@drawable/ic_close_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp">
+
+                <EditText
+                    android:id="@+id/reps_input_3"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/reps_label_3"
+                    android:text="reps"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+
+                <EditText
+                    android:id="@+id/kg_input_3"
+                    android:text="0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/kg_label_3"
+                    android:text="kg"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/colorGrey" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/delete_img_3"
+                app:srcCompat="@drawable/ic_close_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Valider l'exercice" />
 
 </LinearLayout>
-

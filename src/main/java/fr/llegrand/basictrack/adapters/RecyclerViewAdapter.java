@@ -65,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Intent versPrefs = new Intent(context.getApplicationContext(), ExerciceActivity.class);
                 Bundle b = new Bundle();
-                b.putSerializable("exo", exercices.get(i));
+                b.putSerializable("exercice", exercices.get(i));
                 versPrefs.putExtras(b);
                 context.getApplicationContext().startActivity(versPrefs);
                 Log.i("NAV", "Aller ExerciceActivity: " + exercices.get(i).getNom());

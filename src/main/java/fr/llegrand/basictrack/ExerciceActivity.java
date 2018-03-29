@@ -18,13 +18,20 @@ public class ExerciceActivity extends AppCompatActivity {
         Exercice exercice = null;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            exercice = (Exercice) getIntent().getSerializableExtra("exo");
+            exercice = (Exercice) getIntent().getSerializableExtra("exercice");
         }
 
-        TextView nomToolbar = (TextView)findViewById(R.id.toolbar_exercice_nom);
-        nomToolbar.setText(exercice.getNom());
-        TextView muscleToolbar = (TextView)findViewById(R.id.toolbar_exercice_muscle);
-        muscleToolbar.setText(exercice.getMuscle());
+        ((TextView)findViewById(R.id.toolbar_exercice_nom)).setText(exercice.getNom());
+
+        ((TextView)findViewById(R.id.toolbar_exercice_muscle)).setText(exercice.getMuscle());
+
+        ((TextView)findViewById(R.id.reps_input_1)).setText(Integer.toString(exercice.getRepetitions()));
+        ((TextView)findViewById(R.id.reps_input_2)).setText(Integer.toString(exercice.getRepetitions()));
+        ((TextView)findViewById(R.id.reps_input_3)).setText(Integer.toString(exercice.getRepetitions()));
+
+        ((TextView)findViewById(R.id.kg_input_1)).setText(Double.toString(exercice.getPoids()));
+        ((TextView)findViewById(R.id.kg_input_2)).setText(Double.toString(exercice.getPoids()));
+        ((TextView)findViewById(R.id.kg_input_3)).setText(Double.toString(exercice.getPoids()));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_exercice);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

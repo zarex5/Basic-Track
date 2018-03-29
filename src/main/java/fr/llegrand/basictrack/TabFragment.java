@@ -37,7 +37,7 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
         rv = (RecyclerView) view.findViewById(R.id.rv);
-        LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext());
+        LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext()); //TODO: Fix rotation crash
         rv.setLayoutManager(llm);
         adapter = new RecyclerViewAdapter(exercices, act.getApplicationContext());
         rv.setAdapter(adapter);
