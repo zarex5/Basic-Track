@@ -29,6 +29,7 @@ public class TabFragment extends Fragment {
     public TabFragment(Activity act, List<Exercice> exercices) {
         this.act = act;
         this.exercices = new ArrayList<>(exercices);
+        //TODO: Trier exos par position
         //Log.e("E", this.exercices.toString());
     }
 

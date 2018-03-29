@@ -1,10 +1,6 @@
 package fr.llegrand.basictrack;
 
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
         jours.add(new Jour(3, "Jeudi", 3));
 
         exercices = new ArrayList<>();
-        exercices.add(new Exercice(1, "Développé couché", R.drawable.pectoraux, 4, 10, 20.0, 1, 1));
-        exercices.add(new Exercice(2, "Développé couché incliné", R.drawable.pectoraux, 4, 10, 10.0, 2, 1));
-        exercices.add(new Exercice(3, "Curl haltère", R.drawable.biceps, 3, 10, 8.0, 3, 1));
-        exercices.add(new Exercice(4, "Presse", R.drawable.fessiers, 4, 8, 60, 1, 2));
-        exercices.add(new Exercice(5, "Tirage large", R.drawable.dorsaux, 4, 10, 25, 1, 3));
+        exercices.add(new Exercice(1, "Développé couché", "PECTORAUX", 4, 10, 20.0, 1, 1));
+        exercices.add(new Exercice(2, "Développé couché incliné", "PECTORAUX", 4, 10, 10.0, 2, 1));
+        exercices.add(new Exercice(3, "Curl haltère", "BICEPS", 3, 10, 8.0, 3, 1));
+        exercices.add(new Exercice(4, "Presse", "FESSIERS", 4, 8, 60, 1, 2));
+        exercices.add(new Exercice(5, "Tirage large", "DORSAUX", 4, 10, 25, 1, 3));
     }
 
     /*Setup des onglets des tabs*/
