@@ -2,9 +2,13 @@ package fr.llegrand.basictrack;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import fr.llegrand.basictrack.models.Exercice;
@@ -41,5 +45,26 @@ public class ExerciceActivity extends AppCompatActivity {
                 Log.i("NAV", "Retour MainActivity");
             }
         });
+
+        ImageView iv2 = (ImageView) findViewById(R.id.delete_img_2);
+        iv2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Log.i("EXO", "Delete serie 2");
+                CardView cv = (CardView)findViewById(R.id.cardview_2);
+                cv.removeAllViews();
+            }
+        });
+        ImageView iv3 = (ImageView) findViewById(R.id.delete_img_3);
+        iv3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Log.i("EXO", "Delete serie 3");
+                CardView cv = (CardView)findViewById(R.id.cardview_3);
+                cv.removeAllViews();
+            }
+        });
     }
+
+
 }
