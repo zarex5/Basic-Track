@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import fr.llegrand.basictrack.adapters.RecyclerViewAdapter;
@@ -29,8 +30,7 @@ public class TabFragment extends Fragment {
     public TabFragment(Activity act, List<Exercice> exercices) {
         this.act = act;
         this.exercices = new ArrayList<>(exercices);
-        //TODO: Trier exos par position
-        //Log.e("E", this.exercices.toString());
+        Collections.sort(this.exercices);
     }
 
     @Override

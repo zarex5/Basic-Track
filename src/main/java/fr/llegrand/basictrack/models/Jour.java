@@ -1,6 +1,8 @@
 package fr.llegrand.basictrack.models;
 
-public class Jour {
+import android.support.annotation.NonNull;
+
+public class Jour implements Comparable<Jour>{
     private int id;
     private String nom;
     private int position;
@@ -25,6 +27,11 @@ public class Jour {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public int compareTo(@NonNull Jour jour) {
+        return (this.position - jour.getPosition());
     }
 
     @Override

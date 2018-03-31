@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import fr.llegrand.basictrack.adapters.ViewPagerAdapter;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     /*Setup des onglets des tabs*/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        Collections.sort(this.jours);
         for(int i = 0; i<jours.size(); i++) {
             ArrayList<Exercice> exercicesJour = new ArrayList<>();
             for(Exercice e : exercices) {

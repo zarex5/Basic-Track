@@ -1,10 +1,12 @@
 package fr.llegrand.basictrack.models;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 import fr.llegrand.basictrack.R;
 
-public class Exercice implements Serializable {
+public class Exercice implements Serializable, Comparable<Exercice>{
     private int id;
     private String nom;
     private int photoId;
@@ -68,6 +70,11 @@ public class Exercice implements Serializable {
 
     public int getId_jour() {
         return id_jour;
+    }
+
+    @Override
+    public int compareTo(@NonNull Exercice exercice) {
+        return (this.position - exercice.getPosition());
     }
 
     @Override
