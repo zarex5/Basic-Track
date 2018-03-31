@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,14 +36,23 @@ public class TabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        /*if (savedInstanceState != null)
+            this.exercices = (List<Exercice>) savedInstanceState.getSerializable("exercices");*/
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
         rv = (RecyclerView) view.findViewById(R.id.rv);
-        LinearLayoutManager llm = new LinearLayoutManager(act.getApplicationContext()); //TODO: Fix rotation crash
+        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
         rv.setLayoutManager(llm);
-        adapter = new RecyclerViewAdapter(exercices, act.getApplicationContext());
+        adapter = new RecyclerViewAdapter(exercices, view.getContext());
         rv.setAdapter(adapter);
         return view;
     }
+
+
+    /*@Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("exercices", (Serializable) exercices);
+    }*/
 
     @Override
     public void onStart() {
