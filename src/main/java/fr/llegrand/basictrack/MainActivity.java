@@ -128,12 +128,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Log.i("DEBUG", "SETTINGS CLICKED");
+            case R.id.action_logs:
+                Log.i("DEBUG", "LOGS CLICKED");
                 return true;
 
-            case R.id.action_plus:
-                Log.i("DEBUG", "PLUS CLICKED");
+            case R.id.action_edit_days:
+                Log.i("DEBUG", "EDIT DAYS CLICKED");
+                return true;
+
+            case R.id.action_edit_exercices:
+                Log.i("DEBUG", "EDIT EXOS CLICKED");
+                return true;
+
+            case R.id.action_about:
+                Log.i("DEBUG", "ABOUT CLICKED");
                 return true;
 
             default:

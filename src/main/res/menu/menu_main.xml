@@ -4,15 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_logs"
+        android:title="Historique"
+        android:icon="@drawable/ic_assignment_ind_white_24dp"
+        app:showAsAction="always"/>
+
+
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Remove"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_plus"
-        android:orderInCategory="200"
-        android:title="Search"
-        android:icon="@drawable/ic_add"
-        app:showAsAction="ifRoom"/>
+        android:title=""
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_edit"
+                android:title="Éditer"
+                android:icon="@android:drawable/ic_menu_manage">
+                <menu>
+                    <item
+                        android:id="@+id/action_edit_days"
+                        android:title="Jours"
+                        android:icon="@android:drawable/ic_menu_today" />
+                    <item
+                        android:id="@+id/action_edit_exercices"
+                        android:title="Exercices"
+                        android:icon="@android:drawable/ic_menu_myplaces" />
+                </menu>
+            </item>
+            <item
+                android:id="@+id/action_about"
+                android:title="À propos"
+                android:icon="@android:drawable/ic_menu_info_details" />
+        </menu>
+
+    </item>
 </menu>
