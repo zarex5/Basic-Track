@@ -18,6 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ExerciceActivity"></activity>
+        <activity android:name=".LogsActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".EditDaysActivity"></activity>
+        <activity android:name=".EditExosActivity"></activity>
     </application>
 
 </manifest>

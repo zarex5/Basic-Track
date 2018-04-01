@@ -6,9 +6,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import fr.llegrand.basictrack.models.Exercice;
@@ -65,6 +63,4 @@ public class ExerciceActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
