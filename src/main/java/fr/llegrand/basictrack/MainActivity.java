@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
         if(getSharedPreferences("jours", MODE_PRIVATE).getString("jours", null) == null) {
             Log.e("DAT", "SharedPreferences vide");
             ArrayList j = new ArrayList<Jour>();
-            j.add(new Jour(1, "Lundi", 1));
-            j.add(new Jour(2, "Mardi", 2));
-            j.add(new Jour(3, "Jeudi", 3));
+            j.add(new Jour(1, "Pectoraux", 1));
+            j.add(new Jour(2, "Dorsaux", 2));
+            j.add(new Jour(3, "Jambes", 3));
 
             SharedPreferences.Editor editor = getSharedPreferences("jours", MODE_PRIVATE).edit();
             editor.putString("jours", gson.toJson(j).toString());
@@ -79,11 +79,28 @@ public class MainActivity extends AppCompatActivity {
         jours = gson.fromJson(restoredText, new TypeToken<ArrayList<Jour>>(){}.getType());
 
         exercices = new ArrayList<>();
-        exercices.add(new Exercice(1, "Développé couché", "PECTORAUX", 4, 10, 20.0, 1, 1));
-        exercices.add(new Exercice(2, "Développé couché incliné", "PECTORAUX", 4, 10, 10.0, 2, 1));
-        exercices.add(new Exercice(3, "Curl haltère", "BICEPS", 3, 10, 8.0, 3, 1));
-        exercices.add(new Exercice(4, "Presse", "FESSIERS", 4, 8, 60, 1, 2));
-        exercices.add(new Exercice(5, "Tirage large", "DORSAUX", 4, 10, 25, 1, 3));
+        exercices.add(new Exercice(1, "Développé couché", "PECTORAUX", 4, 10, 25.0, 1, 1));
+        exercices.add(new Exercice(2, "Développé couché incliné", "PECTORAUX", 4, 10, 20.0, 2, 1));
+        exercices.add(new Exercice(3, "Écarté couché haltères", "PECTORAUX", 4, 10, 5.0, 3, 1));
+        exercices.add(new Exercice(4, "Curl haltère", "BICEPS", 4, 3, 10, 4, 1));
+        exercices.add(new Exercice(5, "Drag curl", "BICEPS", 3, 10, 15, 5, 1));
+        exercices.add(new Exercice(6, "Curl concentration", "BICEPS", 3, 10, 8, 6, 1));
+        exercices.add(new Exercice(7, "Tapis de course", "CARDIO", 1, 1, 2, 7, 1));
+        exercices.add(new Exercice(8, "Tirage poitrine large", "DORSAUX", 4, 10, 34.3, 1, 2));
+        exercices.add(new Exercice(9, "Tirage poitrine sérrée", "DORSAUX", 4, 10, 34.3, 2, 2));
+        exercices.add(new Exercice(10, "Rowing barre", "DORSAUX", 4, 10, 27.3, 3, 2));
+        exercices.add(new Exercice(11, "Tirage sol poulie", "DORSAUX", 4, 10, 27.3, 4, 2));
+        exercices.add(new Exercice(12, "Poulie haute pronation", "TRICEPS", 3, 10, 9, 5, 2));
+        exercices.add(new Exercice(13, "Extension dessus tête", "TRICEPS", 3, 10, 5, 6, 2));
+        exercices.add(new Exercice(14, "Dips", "TRICEPS", 3, 10, 37, 7, 2));
+        exercices.add(new Exercice(15, "Fentes", "FESSIERS", 3, 8, 16.0, 1, 3));
+        exercices.add(new Exercice(16, "Presse", "FESSIERS", 4, 8, 50.0, 2, 3));
+        exercices.add(new Exercice(17, "Leg extension", "FESSIERS", 3, 10, 32.0, 3, 3));
+        exercices.add(new Exercice(18, "Leg curl couché", "ISCHIOS", 3, 10, 23.0, 4, 3));
+        exercices.add(new Exercice(19, "Calf raises", "MOLLETS", 3, 15, 43.0, 5, 3));
+        exercices.add(new Exercice(20, "Écarter", "ABDUCTEURS", 3, 10, 32.0, 6, 3));
+        exercices.add(new Exercice(21, "Rapprocher", "ABDUCTEURS", 3, 10, 32.0, 7, 3));
+        exercices.add(new Exercice(22, "Abdos", "ABDOS", 3, 15, 20, 8, 3));
     }
 
     /*Setup des onglets des tabs*/

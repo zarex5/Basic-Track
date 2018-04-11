@@ -28,10 +28,18 @@ public class Exercice implements Serializable, Comparable<Exercice>{
         this.id_jour = id_jour;
 
         switch(this.muscle){
-            case "PECTORAUX": this.photoId = R.drawable.pectoraux; break;
+            case "ABDOS": this.photoId = R.drawable.abdos; break;
+            case "ABDUCTEURS": this.photoId = R.drawable.abducteurs; break;
             case "BICEPS": this.photoId = R.drawable.biceps; break;
-            case "FESSIERS": this.photoId = R.drawable.fessiers; break;
+            case "CARDIO": this.photoId = R.drawable.cardio; break;
             case "DORSAUX": this.photoId = R.drawable.dorsaux; break;
+            case "EPAULES": this.photoId = R.drawable.epaules; break;
+            case "FESSIERS": this.photoId = R.drawable.fessiers; break;
+            case "ISCHIOS": this.photoId = R.drawable.ischios; break;
+            case "MOLLETS": this.photoId = R.drawable.mollets; break;
+            case "PECTORAUX": this.photoId = R.drawable.pectoraux; break;
+            case "TRAPEZES": this.photoId = R.drawable.trapezes; break;
+            case "TRICEPS": this.photoId = R.drawable.triceps; break;
             default: this.photoId = R.drawable.cardio; break;
         }
     }
