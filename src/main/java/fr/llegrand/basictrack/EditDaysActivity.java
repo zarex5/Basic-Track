@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -54,7 +55,9 @@ public class EditDaysActivity extends AppCompatActivity {
                 String restoredText = prefs.getString("jours", null);
                 ArrayList<Jour> jours = gson.fromJson(restoredText, new TypeToken<ArrayList<Jour>>(){}.getType());
 
-                jours.add(new Jour(4, "Cardio", 4));
+                String s_name = ((EditText) findViewById(R.id.input_days)).getText().toString();
+                int s_pos = Integer.valueOf(((EditText) findViewById(R.id.input_pos)).getText().toString());
+                jours.add(new Jour(4, s_name, s_pos));
 
                 SharedPreferences.Editor editor = getSharedPreferences("jours", MODE_PRIVATE).edit();
                 editor.putString("jours", gson.toJson(jours).toString());

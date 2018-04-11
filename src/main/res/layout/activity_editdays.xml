@@ -21,16 +21,31 @@
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
+    <EditText
+        android:id="@+id/input_days"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/input_pos"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter jour aux sharedperfs" />
+
     <Button
         android:id="@+id/button_reinit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Réinitialiser SharedPrefs" />
-
-    <Button
-        android:id="@+id/button_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ajouter jour aux sharedperfs" />
 
 </LinearLayout>
