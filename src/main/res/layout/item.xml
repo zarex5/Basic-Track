@@ -6,14 +6,17 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="17dip"
     android:layout_marginRight="17dip"
-    android:layout_marginTop="16dp">
+    android:layout_marginTop="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:elevation="4dp"
-        android:padding="16dp">
+        android:paddingBottom="11dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="11dp">
 
         <ImageView
             android:id="@+id/photoExercice"
