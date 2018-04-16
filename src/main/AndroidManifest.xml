@@ -23,5 +23,6 @@
         <activity android:name=".EditDaysActivity"></activity>
         <activity android:name=".EditExosActivity"></activity>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

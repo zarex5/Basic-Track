@@ -1,6 +1,12 @@
 package fr.llegrand.basictrack;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +17,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+import fr.llegrand.basictrack.models.Entrainement;
 import fr.llegrand.basictrack.models.Exercice;
+import fr.llegrand.basictrack.models.Serie;
 
 public class ExerciceActivity extends AppCompatActivity {
     Exercice exercice = null;
@@ -72,14 +86,30 @@ public class ExerciceActivity extends AppCompatActivity {
     }
 
     public void submit() {
-        String s = "";
+        ArrayList<Serie> series = new ArrayList<>();
         for (int i = 0; i<exercice.getSeries(); i++) {
             if(findViewById(cardsId[i]).getVisibility() == View.VISIBLE) {
-                String reps = ((TextView) findViewById(repsId[i])).getText().toString();
-                String kgs = ((TextView) findViewById(kgsId[i])).getText().toString();
-                s += reps + "-" + kgs + ", ";
+                int reps = Integer.parseInt(((TextView) findViewById(repsId[i])).getText().toString());
+                double kgs = Double.parseDouble(((TextView) findViewById(kgsId[i])).getText().toString());
+                series.add(new Serie(reps, kgs));
             }
         }
+        Entrainement e = new Entrainement(exercice, series);
+
+        File directory = new File(Environment.getExternalStorageDirectory()+"/Basic-Track/entrainements/");
+        if (! directory.exists())
+            directory.mkdirs();
+        File file = new File(directory, "ent-"+exercice.getId()+"-"+e.getDate().getTime());
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            os.writeObject(e);
+            os.close();
+            fos.close();
+        } catch (IOException err) {
+            err.printStackTrace();
+        }
+
         onBackPressed();
         Toast.makeText(getApplicationContext(), "Exercice ajouté", Toast.LENGTH_SHORT).show();
     }
