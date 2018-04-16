@@ -96,6 +96,8 @@ public class ExerciceActivity extends AppCompatActivity {
         }
         Entrainement e = new Entrainement(exercice, series);
 
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         File directory = new File(Environment.getExternalStorageDirectory()+"/Basic-Track/entrainements/");
         if (! directory.exists())
             directory.mkdirs();
