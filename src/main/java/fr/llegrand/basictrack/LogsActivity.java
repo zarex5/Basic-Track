@@ -5,6 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import java.util.ArrayList;
+
+import fr.llegrand.basictrack.models.Entrainement;
+import fr.llegrand.basictrack.models.Serie;
+import fr.llegrand.basictrack.util.Reader;
 
 public class LogsActivity extends AppCompatActivity {
     @Override
@@ -20,5 +26,17 @@ public class LogsActivity extends AppCompatActivity {
                 Log.i("NAV", "Retour MainActivity");
             }
         });
+
+        ArrayList<Entrainement> entrainements = entrainements = Reader.getEntrainements();
+
+        String c = "";
+        for(Entrainement e : entrainements){
+            c += "- " + e.getDate() + " : " + e.getExercice().getNom() + "\n";
+            for(Serie s : e.getSeries()){
+                c += "\t" + s.getRepetitions() + "reps " + s.getPoids() + "kgs\n";
+            }
+        }
+        if(c == "") c = "Aucun entrainement";
+        ((TextView) findViewById(R.id.text)).setText(c);
     }
 }

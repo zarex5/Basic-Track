@@ -1,8 +1,13 @@
 package fr.llegrand.basictrack;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +29,7 @@ import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.models.Jour;
 
 public class MainActivity extends AppCompatActivity {
+    private static Context context;
     private Toolbar toolBar;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -36,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MainActivity.context = getApplicationContext();
+
         getData();
 
         toolBar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -47,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tablayout_main);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setOnTabSelectedListener(tabListener);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
     }
 
     @Override
@@ -56,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         getData();
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public static Context getAppContext() {
+        return MainActivity.context;
     }
 
     /*Setup fake données*/

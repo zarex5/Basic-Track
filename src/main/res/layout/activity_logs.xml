@@ -21,8 +21,8 @@
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
-    <ProgressBar
-        style="?android:attr/progressBarStyle"
+    <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

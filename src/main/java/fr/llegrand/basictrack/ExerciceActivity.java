@@ -1,12 +1,6 @@
 package fr.llegrand.basictrack;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -17,15 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import fr.llegrand.basictrack.models.Entrainement;
 import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.models.Serie;
+import fr.llegrand.basictrack.util.Reader;
 
 public class ExerciceActivity extends AppCompatActivity {
     Exercice exercice = null;
@@ -94,25 +85,17 @@ public class ExerciceActivity extends AppCompatActivity {
                 series.add(new Serie(reps, kgs));
             }
         }
-        Entrainement e = new Entrainement(exercice, series);
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-        File directory = new File(Environment.getExternalStorageDirectory()+"/Basic-Track/entrainements/");
-        if (! directory.exists())
-            directory.mkdirs();
-        File file = new File(directory, "ent-"+exercice.getId()+"-"+e.getDate().getTime());
         try {
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream os = new ObjectOutputStream(fos);
-            os.writeObject(e);
-            os.close();
-            fos.close();
-        } catch (IOException err) {
-            err.printStackTrace();
-        }
+            ArrayList<Entrainement> entrainements = Reader.getEntrainements();
+            Entrainement e = new Entrainement(exercice, series);
+            entrainements.add(e);
+            Reader.setEntrainements(entrainements);
 
-        onBackPressed();
-        Toast.makeText(getApplicationContext(), "Exercice ajouté", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+            Toast.makeText(getApplicationContext(), "Exercice ajouté", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Erreur: Permission d'écriture nécessaire", Toast.LENGTH_SHORT).show();
+        }
     }
 }
