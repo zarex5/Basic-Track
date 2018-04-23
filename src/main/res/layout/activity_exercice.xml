@@ -384,14 +384,77 @@
                 android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_close_grey" />
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/commentaires"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Commentaires"
+            android:inputType="textPersonName" />
+
+        <CheckBox
+            android:id="@+id/seul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seul" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/heure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Heure"
+            android:inputType="date"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/jour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Jour"
+            android:inputType="time"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Position"
+            android:inputType="numberDecimal"
+            android:textAlignment="center" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_valider"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valider l'exercice" />

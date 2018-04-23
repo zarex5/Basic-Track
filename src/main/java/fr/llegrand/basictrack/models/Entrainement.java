@@ -7,12 +7,18 @@ import java.util.List;
 public class Entrainement implements Serializable {
     private Exercice exercice;
     private List<Serie> series;
+    private String commentaires;
+    private boolean seul;
+    private int position;
     private Date date;
 
-    public Entrainement(Exercice exercice, List<Serie> series) {
+    public Entrainement(Exercice exercice, List<Serie> series, String commentaires, boolean seul, int position, Date date) {
         this.exercice = exercice;
         this.series = series;
-        this.date = new Date();
+        this.commentaires = commentaires;
+        this.seul = seul;
+        this.position = position;
+        this.date = date;
     }
 
     public Exercice getExercice() {
@@ -23,12 +29,24 @@ public class Entrainement implements Serializable {
         return series;
     }
 
+    public String getCommentaires() {
+        return commentaires;
+    }
+
+    public boolean isSeul() {
+        return seul;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public Date getDate() {
         return date;
     }
 
     @Override
     public String toString() {
-        return "Entrainement{exercice=" + exercice + ", series=" + series + ", date=" + date + '}';
+        return "Entrainement{exercice=" + exercice + ", series=" + series + ", commentaires=" + commentaires + ", seul=" + seul + ", position=" + position + ", date=" + date + '}';
     }
 }

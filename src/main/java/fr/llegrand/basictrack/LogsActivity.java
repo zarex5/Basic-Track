@@ -31,7 +31,7 @@ public class LogsActivity extends AppCompatActivity {
 
         String c = "";
         for(Entrainement e : entrainements){
-            c += "- " + e.getDate() + " : " + e.getExercice().getNom() + "\n";
+            c += "- " + e.getDate() + " : " + e.getExercice().getNom() + " (" + e.getPosition() + ")\n";
             for(Serie s : e.getSeries()){
                 c += "\t" + s.getRepetitions() + "reps " + s.getPoids() + "kgs\n";
             }

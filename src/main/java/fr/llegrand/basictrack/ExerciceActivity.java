@@ -4,14 +4,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import fr.llegrand.basictrack.models.Entrainement;
 import fr.llegrand.basictrack.models.Exercice;
@@ -60,6 +67,22 @@ public class ExerciceActivity extends AppCompatActivity {
             }
         }
 
+        Date d = new Date();
+
+        TextView jour = ((TextView) findViewById(R.id.jour));
+        SimpleDateFormat fjour = new SimpleDateFormat("dd/MM/yy");
+        jour.setText(fjour.format(d));
+        jour.setInputType(InputType.TYPE_NULL);
+
+        TextView heure = ((TextView) findViewById(R.id.heure));
+        SimpleDateFormat fheure = new SimpleDateFormat("HH:mm");
+        heure.setText(fheure.format(d));
+        heure.setInputType(InputType.TYPE_NULL);
+
+        TextView position = ((TextView) findViewById(R.id.position));
+        position.setText(""+getPosition());
+        position.setInputType(InputType.TYPE_NULL);
+
         ((Button) findViewById(R.id.btn_valider)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 submit();
@@ -86,9 +109,22 @@ public class ExerciceActivity extends AppCompatActivity {
             }
         }
 
+        String jourheure = ((TextView) findViewById(R.id.jour)).getText().toString() + " " + ((TextView) findViewById(R.id.heure)).getText().toString();
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yy HH:mm");
+        Date date;
+        try {
+            date = (Date) formatter.parse(jourheure);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            date = new Date();
+        }
+        String commentaires = ((TextView) findViewById(R.id.commentaires)).getText().toString();
+        boolean seul = ((CheckBox) findViewById(R.id.seul)).isChecked();
+        int position = Integer.parseInt(((TextView) findViewById(R.id.position)).getText().toString());
+
         try {
             ArrayList<Entrainement> entrainements = Reader.getEntrainements();
-            Entrainement e = new Entrainement(exercice, series);
+            Entrainement e = new Entrainement(exercice, series, commentaires, seul, position, date);
             entrainements.add(e);
             Reader.setEntrainements(entrainements);
 
@@ -97,5 +133,18 @@ public class ExerciceActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Erreur: Permission d'écriture nécessaire", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public int getPosition(){
+        int maxPos = 0;
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+        List<Entrainement> list = Reader.getEntrainements();
+        for(Entrainement e : list){
+            if(sdf.format(e.getDate()).equals(sdf.format(now)))
+                if (e.getPosition() > maxPos) maxPos = e.getPosition();
+        }
+        return maxPos+1;
     }
 }
