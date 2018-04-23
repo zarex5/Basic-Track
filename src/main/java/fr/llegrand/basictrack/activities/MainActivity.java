@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -24,6 +24,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import fr.llegrand.basictrack.R;
+import fr.llegrand.basictrack.activities.menu.AboutActivity;
+import fr.llegrand.basictrack.activities.menu.EditDataActivity;
+import fr.llegrand.basictrack.activities.menu.EditDaysActivity;
+import fr.llegrand.basictrack.activities.menu.EditExosActivity;
+import fr.llegrand.basictrack.activities.menu.LogsActivity;
 import fr.llegrand.basictrack.adapters.ViewPagerAdapter;
 import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.models.Jour;
@@ -187,6 +193,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("DEBUG", "EDIT EXOS CLICKED");
                 Intent versEditExos = new Intent(getApplicationContext(), EditExosActivity.class);
                 getApplicationContext().startActivity(versEditExos);
+                return true;
+
+            case R.id.action_edit_data:
+                Log.i("DEBUG", "EDIT DATA CLICKED");
+                Intent versEditData = new Intent(getApplicationContext(), EditDataActivity.class);
+                getApplicationContext().startActivity(versEditData);
                 return true;
 
             case R.id.action_about:

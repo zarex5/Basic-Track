@@ -10,18 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExerciceActivity"></activity>
-        <activity android:name=".LogsActivity"></activity>
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".EditDaysActivity"></activity>
-        <activity android:name=".EditExosActivity"></activity>
+        <activity android:name=".activities.ExerciceActivity"></activity>
+        <activity android:name=".activities.menu.LogsActivity"></activity>
+        <activity android:name=".activities.menu.AboutActivity"></activity>
+        <activity android:name=".activities.menu.EditDaysActivity"></activity>
+        <activity android:name=".activities.menu.EditExosActivity"></activity>
+        <activity android:name=".activities.menu.EditDataActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

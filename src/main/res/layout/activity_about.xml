@@ -21,6 +21,14 @@
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Bientôt disponible" />
+
     <ProgressBar
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"

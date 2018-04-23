@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.models.Entrainement;
 import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.models.Serie;

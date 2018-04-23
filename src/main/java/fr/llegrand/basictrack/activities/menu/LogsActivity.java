@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.activities.menu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.models.Entrainement;
 import fr.llegrand.basictrack.models.Serie;
 import fr.llegrand.basictrack.util.Reader;

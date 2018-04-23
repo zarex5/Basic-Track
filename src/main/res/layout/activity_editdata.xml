@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_editexos"
+        android:id="@+id/toolbar_editdata"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Éditer réglages: Exercices"
+            android:text="Modifier données"
             android:textColor="@color/colorWhite"
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import fr.llegrand.basictrack.ExerciceActivity;
+import fr.llegrand.basictrack.activities.ExerciceActivity;
 import fr.llegrand.basictrack.models.Exercice;
 import fr.llegrand.basictrack.R;
 

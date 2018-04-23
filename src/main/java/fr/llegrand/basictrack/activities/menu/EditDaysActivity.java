@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.activities.menu;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
+import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.models.Jour;
 
 public class EditDaysActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class EditDaysActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_reinit = (Button) findViewById(R.id.button_reinit);
+        /*Button btn_reinit = (Button) findViewById(R.id.button_reinit);
         btn_reinit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +67,6 @@ public class EditDaysActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Jour ajouté", Toast.LENGTH_SHORT);
                 toast.show();
             }
-        });
+        });*/
     }
 }

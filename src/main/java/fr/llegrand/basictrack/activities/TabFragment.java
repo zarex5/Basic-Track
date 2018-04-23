@@ -1,4 +1,4 @@
-package fr.llegrand.basictrack;
+package fr.llegrand.basictrack.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.adapters.RecyclerViewAdapter;
 import fr.llegrand.basictrack.models.Exercice;
 
