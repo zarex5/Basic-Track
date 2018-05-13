@@ -22,16 +22,54 @@
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Bientôt disponible" />
+        android:text="Basic-Track est une application de suivi des entrainements de musculation, permettant un suivi individuel détaillé des performances." />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyle"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:text="L'application est dévelopée dans un but d'apprentisage de la programmation android et est open source." />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Retrouvez le projet sur GitHub" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Version 0.1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/darker_gray"/>
 </LinearLayout>
