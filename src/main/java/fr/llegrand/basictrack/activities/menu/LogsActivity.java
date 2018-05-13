@@ -28,7 +28,7 @@ public class LogsActivity extends AppCompatActivity {
             }
         });
 
-        ArrayList<Entrainement> entrainements = entrainements = Reader.getEntrainements();
+        ArrayList<Entrainement> entrainements = Reader.getEntrainements();
 
         String c = "";
         for(Entrainement e : entrainements){

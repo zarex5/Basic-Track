@@ -12,39 +12,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
-        android:elevation="4dp"
-        android:paddingBottom="11dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="11dp">
-
-        <ImageView
-            android:id="@+id/photoExercice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="18dp"
-            android:src="@drawable/cardio" />
+        android:elevation="4dp">
 
         <TextView
-            android:id="@+id/nomExercice"
+            android:id="@+id/posExercice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/photoExercice"
-            android:paddingBottom="5dp"
-            android:text="Nom de l'exercice"
-            android:textSize="17sp" />
+            android:layout_height="70dp"
+            android:background="@color/colorGreen"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:text="\?"
+            android:textColor="@color/colorWhite" />
 
-        <TextView
-            android:id="@+id/infosExercice"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nomExercice"
-            android:layout_toRightOf="@+id/photoExercice"
-            android:text="Séries: ? | Répetitions: ? | Poids: ?"
-            android:textColor="#8b8b8b"
-            android:textSize="12sp" />
+            android:paddingBottom="11dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="11dp">
 
+            <ImageView
+                android:id="@+id/photoExercice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="18dp"
+                android:src="@drawable/cardio" />
+
+            <TextView
+                android:id="@+id/nomExercice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/photoExercice"
+                android:paddingBottom="5dp"
+                android:text="Nom de l'exercice"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/infosExercice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nomExercice"
+                android:layout_toRightOf="@+id/photoExercice"
+                android:text="Séries: ? | Répetitions: ? | Poids: ?"
+                android:textColor="#8b8b8b"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
