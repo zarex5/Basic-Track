@@ -45,12 +45,26 @@
         android:layout_marginBottom="15dp"
         android:background="@android:color/darker_gray"/>
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/githubLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Retrouvez le projet sur GitHub" />
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/github" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="15dp"
+            android:text="Retrouvez le projet sur GitHub" />
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -60,11 +74,18 @@
         android:background="@android:color/darker_gray"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Version :" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:text="Version 0.1" />
+        android:text="@string/app_version" />
 
     <View
         android:layout_width="match_parent"
@@ -72,4 +93,5 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:background="@android:color/darker_gray"/>
+
 </LinearLayout>

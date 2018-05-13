@@ -1,10 +1,13 @@
 package fr.llegrand.basictrack.activities.menu;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import fr.llegrand.basictrack.R;
 
@@ -20,6 +23,16 @@ public class AboutActivity extends AppCompatActivity {
             public void onClick(View view) {
                 onBackPressed();
                 Log.i("NAV", "Retour MainActivity");
+            }
+        });
+
+        LinearLayout githubLink = (LinearLayout) findViewById(R.id.githubLink);
+        githubLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(getString(R.string.link_github)));
+                startActivity(i);
             }
         });
     }
