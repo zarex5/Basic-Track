@@ -21,12 +21,35 @@
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="60dp"
+        app:srcCompat="@drawable/logo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/byiNo"
+            android:layout_width="80dp"
+            android:layout_height="27dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="42dp"
+            app:srcCompat="@drawable/par_ino" />
+    </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="6dp"
         android:gravity="center"
         android:text="Basic-Track est une application de suivi des entrainements de musculation, permettant un suivi individuel détaillé des performances." />
 
@@ -36,14 +59,14 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:gravity="center"
-        android:text="L'application est dévelopée dans un but d'apprentisage de la programmation android et est open source." />
+        android:text="L'application est dévelopée dans un but d'apprentissage de la programmation android et est open source." />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="55dp"
         android:layout_marginBottom="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/colorLightGrey"/>
 
     <LinearLayout
         android:id="@+id/githubLink"
@@ -53,9 +76,9 @@
 
         <ImageView
             android:id="@+id/imageView"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             app:srcCompat="@drawable/github" />
 
         <TextView
@@ -70,28 +93,47 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/colorLightGrey"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Version :" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="@string/app_version" />
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="11dp"
+                android:text="Version :" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/app_version" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/beta" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="14dp"
         android:layout_marginBottom="15dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/colorLightGrey"/>
 
 </LinearLayout>
