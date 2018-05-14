@@ -84,6 +84,23 @@ public class ExerciceActivity extends AppCompatActivity {
         position.setText(""+getPosition());
         position.setInputType(InputType.TYPE_NULL);
 
+        String historicString = "";
+        ArrayList<Entrainement> entrainements = Reader.getEntrainements();
+        for(Entrainement e : entrainements){
+            if(e.getExercice().getId() == exercice.getId()){
+                SimpleDateFormat sdf = new SimpleDateFormat("EEE d MMM yyyy");
+                historicString += "- " + capitalize(sdf.format(e.getDate())) + " (" + e.getPosition() + (e.getPosition() == 1 ? "er" : "ème") + " exercice) :\n";
+                for(Serie s : e.getSeries()){
+                    historicString += "            " + s.getPoids() + " kilos : " + s.getRepetitions() + " répétitions\n";
+                }
+                historicString += "\n";
+            }
+        }
+        if(historicString != "") {
+            TextView historic = ((TextView) findViewById(R.id.historic));
+            historic.setText(historicString);
+        }
+
         ((Button) findViewById(R.id.btn_valider)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 submit();
@@ -147,5 +164,10 @@ public class ExerciceActivity extends AppCompatActivity {
                 if (e.getPosition() > maxPos) maxPos = e.getPosition();
         }
         return maxPos+1;
+    }
+
+    public static String capitalize(String s) {
+        if (s.length() == 0) return s;
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 }

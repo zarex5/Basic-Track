@@ -1,462 +1,494 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:id="@+id/layouttest">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_exercice"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        app:theme="@style/ToolbarColoredWhiteArrow">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_exercice"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:theme="@style/ToolbarColoredWhiteArrow">
+
+            <TextView
+                android:id="@+id/toolbar_exercice_nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercice"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/toolbar_exercice_muscle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:text="Muscle"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhiteTransparent"
+                android:textSize="14sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp">
+
+                    <EditText
+                        android:id="@+id/reps_input_1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/reps_label_1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="14dp"
+                        android:text="reps"
+                        android:textColor="@color/colorGrey" />
+
+                    <EditText
+                        android:id="@+id/kg_input_1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/kg_label_1"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="14dp"
+                        android:text="kg"
+                        android:textColor="@color/colorGrey" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/delete_img_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_close_grey" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp">
+
+                    <EditText
+                        android:id="@+id/reps_input_2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/reps_label_2"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="14dp"
+                        android:text="reps"
+                        android:textColor="@color/colorGrey" />
+
+                    <EditText
+                        android:id="@+id/kg_input_2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/kg_label_2"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="14dp"
+                        android:text="kg"
+                        android:textColor="@color/colorGrey" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/delete_img_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_close_grey" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp">
+
+                    <EditText
+                        android:id="@+id/reps_input_3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/reps_label_3"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="14dp"
+                        android:text="reps"
+                        android:textColor="@color/colorGrey" />
+
+                    <EditText
+                        android:id="@+id/kg_input_3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/kg_label_3"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="14dp"
+                        android:text="kg"
+                        android:textColor="@color/colorGrey" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/delete_img_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_close_grey" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp">
+
+                    <EditText
+                        android:id="@+id/reps_input_4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/reps_label_4"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="14dp"
+                        android:text="reps"
+                        android:textColor="@color/colorGrey" />
+
+                    <EditText
+                        android:id="@+id/kg_input_4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/kg_label_4"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="14dp"
+                        android:text="kg"
+                        android:textColor="@color/colorGrey" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/delete_img_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_close_grey" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp">
+
+                    <EditText
+                        android:id="@+id/reps_input_5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/reps_label_5"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="14dp"
+                        android:text="reps"
+                        android:textColor="@color/colorGrey" />
+
+                    <EditText
+                        android:id="@+id/kg_input_5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/kg_label_5"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="14dp"
+                        android:text="kg"
+                        android:textColor="@color/colorGrey" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/delete_img_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_close_grey" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:id="@+id/commentaires"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Commentaires"
+                android:inputType="textPersonName" />
+
+            <CheckBox
+                android:id="@+id/seul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seul" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout02"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:id="@+id/heure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Heure"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/jour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Jour"
+                android:inputType="time"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Position"
+                android:inputType="numberDecimal"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_valider"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Valider l'exercice" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorLightGrey" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/graph" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorLightGrey" />
 
         <TextView
-            android:id="@+id/toolbar_exercice_nom"
-            android:layout_width="wrap_content"
+            android:id="@+id/historic"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Exercice"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Aucun entrainement n'a été réalisé pour l'instant" />
 
-        <TextView
-            android:id="@+id/toolbar_exercice_muscle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="15dp"
-            android:text="Muscle"
-            android:textAllCaps="true"
-            android:textColor="@color/colorWhiteTransparent"
-            android:textSize="14sp" />
-    </android.support.v7.widget.Toolbar>
-
-    <LinearLayout
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="0px"
-        android:layout_height="0px"/>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:visibility="visible">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp">
-
-                <EditText
-                    android:id="@+id/reps_input_1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/reps_label_1"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="14dp"
-                    android:text="reps"
-                    android:textColor="@color/colorGrey" />
-
-                <EditText
-                    android:id="@+id/kg_input_1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/kg_label_1"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="14dp"
-                    android:text="kg"
-                    android:textColor="@color/colorGrey" />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/delete_img_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:visibility="visible"
-                app:srcCompat="@drawable/ic_close_grey" />
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp">
-
-                <EditText
-                    android:id="@+id/reps_input_2"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/reps_label_2"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="14dp"
-                    android:text="reps"
-                    android:textColor="@color/colorGrey" />
-
-                <EditText
-                    android:id="@+id/kg_input_2"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/kg_label_2"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="14dp"
-                    android:text="kg"
-                    android:textColor="@color/colorGrey" />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/delete_img_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_close_grey" />
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp">
-
-                <EditText
-                    android:id="@+id/reps_input_3"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/reps_label_3"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="14dp"
-                    android:text="reps"
-                    android:textColor="@color/colorGrey" />
-
-                <EditText
-                    android:id="@+id/kg_input_3"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/kg_label_3"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="14dp"
-                    android:text="kg"
-                    android:textColor="@color/colorGrey" />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/delete_img_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_close_grey" />
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp">
-
-                <EditText
-                    android:id="@+id/reps_input_4"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/reps_label_4"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="14dp"
-                    android:text="reps"
-                    android:textColor="@color/colorGrey" />
-
-                <EditText
-                    android:id="@+id/kg_input_4"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/kg_label_4"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="14dp"
-                    android:text="kg"
-                    android:textColor="@color/colorGrey" />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/delete_img_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_close_grey" />
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp">
-
-                <EditText
-                    android:id="@+id/reps_input_5"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/reps_label_5"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="14dp"
-                    android:text="reps"
-                    android:textColor="@color/colorGrey" />
-
-                <EditText
-                    android:id="@+id/kg_input_5"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:text="0" />
-
-                <TextView
-                    android:id="@+id/kg_label_5"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="14dp"
-                    android:text="kg"
-                    android:textColor="@color/colorGrey" />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/delete_img_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_close_grey" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/LinearLayout01"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="4dp"
-        android:layout_alignParentBottom="true">
-
-        <EditText
-            android:id="@+id/commentaires"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Commentaires"
-            android:inputType="textPersonName" />
-
-        <CheckBox
-            android:id="@+id/seul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seul" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearLayout02"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_alignParentBottom="true">
-
-        <EditText
-            android:id="@+id/heure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Heure"
-            android:inputType="date"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/jour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Jour"
-            android:inputType="time"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Position"
-            android:inputType="numberDecimal"
-            android:textAlignment="center" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_valider"
-        android:layout_marginLeft="26dp"
-        android:layout_marginRight="26dp"
-        android:layout_marginTop="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Valider l'exercice" />
-
-</LinearLayout>
+</ScrollView>
