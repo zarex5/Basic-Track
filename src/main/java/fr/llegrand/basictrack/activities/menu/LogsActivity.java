@@ -6,7 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.models.Entrainement;
@@ -30,14 +36,39 @@ public class LogsActivity extends AppCompatActivity {
 
         ArrayList<Entrainement> entrainements = Reader.getEntrainements();
 
-        String c = "";
+        Map<String, List<Entrainement>> entrainementsByDate = new TreeMap<String, List<Entrainement>>(Collections.reverseOrder());
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE d MMM yyyy");
         for(Entrainement e : entrainements){
-            c += "- " + e.getDate() + " : " + e.getExercice().getNom() + " (" + e.getPosition() + ")\n";
-            for(Serie s : e.getSeries()){
-                c += "\t" + s.getRepetitions() + "reps " + s.getPoids() + "kgs\n";
+            String codeDate = sdf.format(e.getDate());
+            List<Entrainement> listEnt = entrainementsByDate.get(codeDate);
+            if (listEnt != null) {
+                listEnt.add(e);
+                entrainementsByDate.replace(codeDate, listEnt);
+            } else {
+                List<Entrainement> newListEnt = new ArrayList<>();
+                newListEnt.add(e);
+                entrainementsByDate.put(codeDate, newListEnt);
             }
+        }
+
+        String c = "";
+        for (String codeJour: entrainementsByDate.keySet()){
+            List<Entrainement> listEnt = entrainementsByDate.get(codeJour);
+            c += capitalize(codeJour) + " :\n";
+            for(Entrainement e : listEnt){
+                c += "- " + e.getExercice().getNom() + " (" + e.getPosition() + (e.getPosition() == 1 ? "er" : "ème") + " exercice) :\n";
+                for(Serie s : e.getSeries()) {
+                    c += "            " +  s.getPoids() + " kilos : " + s.getRepetitions() + " répétitions\n";
+                }
+            }
+            c += "\n";
         }
         if(c == "") c = "Aucun entrainement";
         ((TextView) findViewById(R.id.text)).setText(c);
+    }
+
+    public static String capitalize(String s) {
+        if (s.length() == 0) return s;
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 }
