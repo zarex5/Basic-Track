@@ -1,11 +1,16 @@
 package fr.llegrand.basictrack.activities.menu;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,6 +21,7 @@ import java.util.TreeMap;
 
 import fr.llegrand.basictrack.R;
 import fr.llegrand.basictrack.models.Entrainement;
+import fr.llegrand.basictrack.models.Jour;
 import fr.llegrand.basictrack.models.Serie;
 import fr.llegrand.basictrack.util.Reader;
 
@@ -51,10 +57,15 @@ public class LogsActivity extends AppCompatActivity {
             }
         }
 
+        final Gson gson = new GsonBuilder().serializeNulls().create();
+        SharedPreferences prefs = getSharedPreferences("jours", MODE_PRIVATE);
+        String restoredText = prefs.getString("jours", null);
+        List<Jour> jours = gson.fromJson(restoredText, new TypeToken<ArrayList<Jour>>(){}.getType());
+
         String c = "";
         for (String codeJour: entrainementsByDate.keySet()){
             List<Entrainement> listEnt = entrainementsByDate.get(codeJour);
-            c += capitalize(codeJour) + " :\n";
+            c += capitalize(codeJour) + " - " + jours.get(listEnt.get(0).getExercice().getId_jour()-1).getNom() + " :\n";
             for(Entrainement e : listEnt){
                 c += "- " + e.getExercice().getNom() + " (" + e.getPosition() + (e.getPosition() == 1 ? "er" : "ème") + " exercice) :\n";
                 for(Serie s : e.getSeries()) {
