@@ -85,7 +85,7 @@ public class Reader {
         File file = new File(directory, exportsFile);
         try {
             FileOutputStream fos = new FileOutputStream(file);
-            OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+            OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.ISO_8859_1);
             osw.write("idExercice;nomExercice;muscleExercice;commentaires;seul;position;date;repsSerie1;kgsSerie1;repsSerie2;kgsSerie2;repsSerie3;kgsSerie3;repsSerie4;kgsSerie4;repsSerie5;kgsSerie5\n");
             for(Entrainement e : entrainements) {
                 Exercice ex = e.getExercice();
